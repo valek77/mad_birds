@@ -261,7 +261,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 542166255
-  m_SortingLayer: 1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0b8bbf5199d0038458f583e0aa7b88f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -370,7 +370,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1898721431
-  m_SortingLayer: 2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ff1562ecb64bba045ba4a05c088e28ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -409,6 +409,8 @@ GameObject:
   - component: {fileID: 1960258276}
   - component: {fileID: 1960258278}
   - component: {fileID: 1960258279}
+  - component: {fileID: 1960258280}
+  - component: {fileID: 1960258281}
   m_Layer: 0
   m_Name: BeekRedOpen1
   m_TagString: Untagged
@@ -453,8 +455,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1898721431
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 354e3b168c253dd4fb6a80ed1dad7358, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -554,3 +556,34 @@ PolygonCollider2D:
       - {x: 0.26, y: -0.31}
       - {x: 0.26, y: -0.24}
       - {x: 0.5, y: -0.17999999}
+--- !u!95 &1960258280
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960258275}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7c2ce9e2ff281aa449fed7169c2f6551, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1960258281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960258275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9cb7f4410c1ecb47970170a5289b86f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

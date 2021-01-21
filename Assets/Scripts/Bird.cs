@@ -7,6 +7,11 @@ public class Bird : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Vector2 startPosition;
+    private Quaternion startRotation;
+
+
+    [SerializeField]
+    float forza=700;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +19,9 @@ public class Bird : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         rb.isKinematic = true;
         startPosition = rb.position;
+        startRotation = gameObject.transform.rotation;
+
+
     }
 
 
@@ -27,7 +35,8 @@ public class Bird : MonoBehaviour
         Vector2 direction = startPosition - rb.position  ;
         direction.Normalize();
         rb.isKinematic = false;
-        rb.AddForce(direction * 500);
+        rb.AddForce(direction * forza);
+        //rb.freezeRotation = false;
 
         sr.color = Color.white;
     }
@@ -43,5 +52,23 @@ public class Bird : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        StartCoroutine(ResetAfterDelay());
+    }
+
+    IEnumerator ResetAfterDelay() {
+
+        while(rb.velocity!= Vector2.zero)
+            yield return new WaitForSeconds(1);
+
+        yield return new WaitForSeconds(2);
+
+        rb.isKinematic = true;
+        rb.position = startPosition;
+        rb.velocity = Vector2.zero;
+        gameObject.transform.rotation = startRotation;
     }
 }
