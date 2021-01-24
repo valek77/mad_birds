@@ -1971,6 +1971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01e73ab99e5e584dae275e09b35e310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deadSprite: {fileID: 21300000, guid: 70a60dad9c6f2aa42941b53edf1428e9, type: 3}
 --- !u!50 &1893178169
 Rigidbody2D:
   serializedVersion: 4
@@ -2114,7 +2115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960258275}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.49, y: 1.3, z: 0}
+  m_LocalPosition: {x: -8.65, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2225,6 +2226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forza: 1000
+  maxDragDistance: 2
 --- !u!1 &2104867514
 GameObject:
   m_ObjectHideFlags: 0

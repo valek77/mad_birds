@@ -7,11 +7,16 @@ public class Bird : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Vector2 startPosition;
+    private Vector3 startPosition3;
     private Quaternion startRotation;
 
 
     [SerializeField]
     float forza=700;
+
+    [SerializeField]
+    float maxDragDistance = 2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +25,7 @@ public class Bird : MonoBehaviour
         rb.isKinematic = true;
         startPosition = rb.position;
         startRotation = gameObject.transform.rotation;
-
+        startPosition3 = new Vector3(startPosition.x, startPosition.y, transform.position.z);
 
     }
 
@@ -44,8 +49,28 @@ public class Bird : MonoBehaviour
     private void OnMouseDrag()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 desideredPosition = mousePosition;
 
-        transform.position = new Vector3(mousePosition.x, mousePosition.y, transform.position.z);
+       
+
+
+        if (Vector2.Distance(desideredPosition, startPosition) > maxDragDistance) 
+        {
+            Vector2 direction =   desideredPosition - startPosition;
+            direction.Normalize();
+
+            desideredPosition = startPosition + (direction * maxDragDistance);
+        }
+
+        if (desideredPosition.x > startPosition.x)
+            desideredPosition.x = startPosition.x;
+
+        Vector3 desideredPosition3 = new Vector3(desideredPosition.x, desideredPosition.y, transform.position.z);
+        if(Vector2.Distance(startPosition, desideredPosition)>1)
+            Debug.DrawLine(startPosition3, desideredPosition3, Color.red, 2.5f, true);
+
+
+        transform.position = desideredPosition3;
     }
 
     // Update is called once per frame

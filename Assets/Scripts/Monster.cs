@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
+
+    [SerializeField]
+    Sprite deadSprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,11 +38,17 @@ public class Monster : MonoBehaviour
         if (bird != null)
             return true;
 
+
+        if (collision.contacts[0].normal.y < -0.5)
+            return true;
+
         return false;
     }
 
     private void Die()
     {
-        gameObject.SetActive(false);
+
+        GetComponent<SpriteRenderer>().sprite = deadSprite;
+       // gameObject.SetActive(false);
     }
 }
