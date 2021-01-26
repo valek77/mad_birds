@@ -8,10 +8,17 @@ public class Monster : MonoBehaviour
 
     [SerializeField]
     Sprite deadSprite;
+
+    [SerializeField]
+    ParticleSystem particleSystem;
+
+
+    private bool hasDied;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -34,6 +41,10 @@ public class Monster : MonoBehaviour
 
     private bool ShouldMonsterDie(Collision2D collision)
     {
+
+        if (hasDied)
+            return false;
+
         Bird bird = collision.gameObject.GetComponent<Bird>();
         if (bird != null)
             return true;
@@ -47,8 +58,11 @@ public class Monster : MonoBehaviour
 
     private void Die()
     {
-
+        hasDied = true;
         GetComponent<SpriteRenderer>().sprite = deadSprite;
-       // gameObject.SetActive(false);
+
+        particleSystem.Play();
+        
+        // gameObject.SetActive(false);
     }
 }
